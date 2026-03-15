@@ -1,0 +1,61 @@
+# ==============================================================================
+# ANPR System - Requirements
+# Automatic Number Plate Recognition for Real-Time Traffic Monitoring
+# ==============================================================================
+# Install with: pip install -r requirements.txt
+# GPU-optimized for NVIDIA RTX 2050 (4GB VRAM)
+# Python 3.9+
+
+# --- Deep Learning & Detection ---
+# PyTorch: Install the CUDA-enabled version manually from https://pytorch.org/
+# Recommended: pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+torch>=2.1.0
+torchvision>=0.16.0
+
+# --- YOLO (Ultralytics) ---
+# YOLOv8 for vehicle detection and license plate localization
+ultralytics>=8.0.196
+
+# --- Computer Vision ---
+opencv-python>=4.8.0
+opencv-python-headless>=4.8.0  # Use this if running in headless server mode
+
+# --- OCR ---
+paddleocr>=2.7.0,<3.0  # PaddleOCR v2.x API is used by util.py
+paddlepaddle>=2.5.0,<3.0  # Keep backend in the same major line for compatibility
+
+# --- Object Tracking (SORT dependencies) ---
+# SORT uses scipy, numpy, and filterpy for the Kalman Filter
+filterpy>=1.4.5
+scikit-image>=0.21.0   # For IOU computation in SORT
+lap>=0.4.0             # Linear Assignment Problem solver (fast Hungarian algorithm)
+
+# --- Scientific Computing & Smoothing ---
+scipy>=1.11.0
+numpy>=1.24.0
+
+# --- Data Handling & I/O ---
+pandas>=2.0.0          # For structured CSV output and data manipulation
+
+# --- Utilities ---
+Pillow>=10.0.0         # Image I/O used by PaddleOCR and Ultralytics
+tqdm>=4.66.0           # Progress bars during training and inference
+PyYAML>=6.0            # For reading YOLO dataset .yaml config files
+matplotlib>=3.7.0      # For training plots (confusion matrix, loss curves)
+seaborn>=0.12.0        # Enhanced plotting for validation graphs
+requests>=2.31.0       # Used by dataset downloader fallback export flow
+imageio-ffmpeg>=0.5.1  # Bundled ffmpeg fallback for web-safe video re-encode
+
+# --- Dataset Download / Preparation ---
+huggingface_hub>=0.24.0
+datasets>=2.20.0
+roboflow>=1.1.42
+
+# --- Web API / Dashboard ---
+fastapi>=0.112.0
+uvicorn>=0.30.0
+python-multipart>=0.0.9
+
+# --- Optional: SORT from pip (alternative to local sort.py) ---
+# If you prefer the pip package: pip install sort-tracker
+# We include a self-contained sort.py in this project instead.
