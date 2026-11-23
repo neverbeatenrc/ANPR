@@ -1,4 +1,4 @@
-# ANPR: Automatic Number Plate Recognition Pipeline
+# ANPR: Automatic Number Plate Recognition Pipeline by aarsee,aditi,vedika,awantika
 
 End-to-end ANPR for video files using YOLOv8 + SORT + PaddleOCR, tuned for Indian license plate formats.
 
